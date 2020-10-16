@@ -28,3 +28,16 @@ $minio->disk('my-bucket', function (S3Client $client, string $bucket) {
     $this->assertStringContainsString('partial-file-content', $content);
 });
 ```
+
+# Docker Example
+
+```yaml
+  minio:
+    image: minio/minio
+    ports:
+    - 9000:9000
+    environment:
+      - MINIO_ACCESS_KEY=customergauge
+      - MINIO_SECRET_KEY=phpunit123
+    command: server /data
+```
