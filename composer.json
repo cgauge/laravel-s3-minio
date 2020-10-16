@@ -1,0 +1,35 @@
+{
+  "name": "customergauge/minio",
+  "description": "Faking S3 storage with Minio",
+  "type": "library",
+  "license": "MIT",
+  "keywords": ["laravel", "s3", "storage", "minio"],
+  "authors": [
+    {
+      "name": "Marco Deleu",
+      "email": "deleugyn@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.3",
+    "ext-json": "*",
+    "illuminate/contracts": "^7.1",
+    "aws/aws-sdk-php": "^3.158"
+  },
+  "require-dev": {
+    "illuminate/config": "~7.1",
+    "illuminate/container": "~7.1",
+    "phpunit/phpunit": "^9.0",
+    "phpstan/phpstan": "^0.12.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "CustomerGauge\\Minio\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\CustomerGauge\\Minio\\": "tests/"
+    }
+  }
+}
