@@ -22,7 +22,7 @@ class Minio
         string $host = 'minio',
         int $port = 9000,
         string $key = 'customergauge',
-        string $secret = 'phpunit',
+        string $secret = 'phpunit123',
         ?Repository $config = null
     ) {
         $this->host = $host;
