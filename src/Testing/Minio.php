@@ -8,9 +8,7 @@ use Throwable;
 
 class Minio
 {
-    private $host;
-
-    private $port;
+    private $endpoint;
 
     private $key;
 
@@ -25,27 +23,29 @@ class Minio
         string $secret = 'phpunit123',
         ?Repository $config = null
     ) {
-        $this->host = $host;
-        $this->port = $port;
+        $this->endpoint = 'http://' . $host . ':' . $port;
         $this->key = $key;
         $this->secret = $secret;
         $this->config = $config ?? config();
     }
 
-    public function disk(string $disk, callable $callback)
+    public function client(): S3Client
     {
-        $endpoint = 'http://' . $this->host . ':' . $this->port;
-
-        $client = new S3Client([
+        return new S3Client([
             'region' => 'local',
             'version' => '2006-03-01',
-            'endpoint' => $endpoint,
+            'endpoint' => $this->endpoint,
             'use_path_style_endpoint' => true,
             'credentials' => [
                 'key' => $this->key,
                 'secret' => $this->secret,
             ],
         ]);
+    }
+
+    public function disk(string $disk, callable $callback)
+    {
+        $client = $this->client();
 
         $bucket = "$disk-bucket";
 
@@ -55,7 +55,7 @@ class Minio
             'driver' => 's3',
             'region' => 'local',
             'bucket' => $bucket,
-            'endpoint' => $endpoint,
+            'endpoint' => $this->endpoint,
             'use_path_style_endpoint' => true,
             'key' => $this->key,
             'secret' => $this->secret,
