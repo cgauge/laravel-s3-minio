@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "php": "^7.3",
+    "php": ">=7.3",
     "ext-json": "*",
     "illuminate/contracts": "^7.1 || ^8.0",
     "aws/aws-sdk-php": "^3.158"
