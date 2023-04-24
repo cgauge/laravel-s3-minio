@@ -15,13 +15,13 @@
   "require": {
     "php": ">=7.3",
     "ext-json": "*",
-    "illuminate/contracts": "^7.1 || ^8.0 || ^9.0",
+    "illuminate/contracts": ">=7.1",
     "aws/aws-sdk-php": "^3.158"
   },
   "require-dev": {
-    "illuminate/config": "~7.1 || ^8.0 || ^9.0",
-    "illuminate/container": "~7.1 || ^8.0 || ^9.0",
-    "phpunit/phpunit": "^9.0",
+    "illuminate/config": ">=7.1",
+    "illuminate/container": "~7.1",
+    "phpunit/phpunit": ">=9.0",
     "phpstan/phpstan": "^1.0"
   },
   "autoload": {
